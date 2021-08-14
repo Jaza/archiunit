@@ -1,0 +1,4 @@
+languageCode = "en"
+title = "ArchiUnit"
+disableKinds = ["RSS", "taxonomy"]
+ignoreErrors = ["error-disable-taxonomy"]
