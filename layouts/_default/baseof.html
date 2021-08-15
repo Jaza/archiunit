@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="{{ .Site.LanguageCode }}" dir="ltr" class="no-js">
+<head>
+{{- partial "head.html" . -}}
+</head>
+<body class="{{- block "body_class" . }}{{- end }}">
+
+{{- partial "nav_and_search.html" . -}}
+
+{{- block "main" . }}{{- end }}
+
+</body>
+</html>
