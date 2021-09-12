@@ -1,2 +1,23 @@
 {{ define "main" }}
+<div class="body-content">
+  <div class="row">
+    <div class="col-sm-12">
+
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+
+          <h1>{{ .Title }}</h1>
+
+          <div style="position: relative; margin-top: 40px">
+            <div class="rich-text-content">
+
+              {{ .Content }}
+
+            </div>
+          </div>
+        </div>
+     </div>
+    </div>
+  </div>
+</div>
 {{ end }}

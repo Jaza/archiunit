@@ -7,7 +7,11 @@
 
 {{- partial "nav_and_search.html" . -}}
 
-{{- block "main" . }}{{- end }}
+<div class="main" role="main">
+  <div class="{{- block "content_class" . }}container{{- end }}">
+    {{- block "main" . }}{{- end }}
+  </div>
+</div>
 
 {{- partial "foot.html" . -}}
 </body>
