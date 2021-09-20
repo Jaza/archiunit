@@ -1,7 +1,7 @@
 ---
 title: "Legal"
 ---
-*Last updated:* Tue 19 Dec 2017
+**Last updated:** Tue 19 Dec 2017
 
 Please read this Terms of Use, Disclaimer, Privacy Policy, and related Legal Information document (the "Document") carefully, before using the archiunit.com web site and related services (the "Service"), operated by the J.P Epstein & L Filson registered Australian partnership ABN 44 791 776 896 ("us", "we", "our", or "ArchiUnit").
 

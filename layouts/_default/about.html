@@ -1,0 +1,35 @@
+{{- define "body_class" }}navbar-nobottommargin{{ end -}}
+
+{{ define "main" }}
+  </div>
+
+{{ if .Params.heroImage }}
+<div style="background-color: #000">
+  <div style="position: relative; max-width: 2880px; margin: auto">
+
+    <div class="container">
+
+      <div class="body-content">
+        <div class="row">
+          <div class="col-sm-12 about-hero-wrapper">
+
+            <div class="about-hero">
+              <p class="text-center about-lead">Find the right fit</p>
+
+              <p class="text-center lead about-byline">Join ArchiUnit and start having a conversation with your suppliers</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+    
+    <img class="img-responsive" src="{{ .Site.Params.mediaBaseURL }}{{ .Params.heroImage }}" alt="{{ .Site.Title }}">
+    
+  </div>
+</div>
+{{ end }}
+
+<div class="container">
+{{ end }}
