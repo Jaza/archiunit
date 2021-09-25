@@ -32,4 +32,152 @@
 {{ end }}
 
 <div class="container">
+
+  <div class="body-content">
+    <div class="row">
+      <div class="col-sm-12">
+
+      <br>
+      
+      <h1 class="sr-only">{{ .Title }}</h1>
+      
+      {{ if .Content }}
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <div style="position: relative; margin-top: 40px">
+            <div class="rich-text-content">
+              {{ .Content }}
+            </div>
+          </div>
+        </div>
+      </div>
+      {{ end }}
+      
+      {{ if .Site.Params.youtubePromoVideoId }}
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2" style="margin-top: 60px">
+
+          {{- partial "promo_video.html" . -}}
+
+        </div>
+      </div>
+      {{ end }}
+      
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          {{ if .Params.aboutBelowVideo }}
+          <div style="position: relative; margin-top: 60px">
+            <div class="rich-text-content">
+              {{ .Params.aboutBelowVideo | markdownify }}
+            </div>
+          </div>
+          {{ end }}
+          
+          {{ if .Site.Params.facebookLikeButtonAppId }}
+          <div class="text-center" style="margin-top: 60px; margin-bottom: 20px">
+            {{- partial "facebook_like_button.html" . -}}
+          </div>
+          {{ end }}
+          
+          {{ if .Site.Params.paypalDonateButtonId }}
+          <div class="text-center" style="margin-top: 20px; margin-bottom: 20px">
+            {{- partial "paypal_donate_button.html" . -}}
+          </div>
+          {{ end }}
+        </div>
+      </div>
+      
+      {{ if .Params.teamTitle }}
+      <div class="row">
+        <div class="col-sm-12" style="margin-top: 40px">
+          
+          <div class="short-text-content">
+            <h2 class="text-center">{{ .Params.teamTitle }}</h2>
+          </div>
+          
+        </div>
+      </div>
+      {{ end }}
+      
+      <div class="row">
+          
+        <div class="col-sm-6 col-lg-4 col-lg-offset-2" style="margin-top: 40px">
+            
+          {{ if .Params.teamLiamImage }}
+          <div style="max-width: 240px; margin: auto">
+            <img class="img-responsive img-circle" src="{{ .Site.Params.mediaBaseURL }}{{ .Params.teamLiamImage }}" alt="{{ .Site.Title }}">
+          </div>
+          {{ end }}
+          
+          {{ if .Params.teamLiamTitle }}
+          <div class="short-text-content">
+            <h3 class="text-center">{{ .Params.teamLiamTitle }}</h3>
+          </div>
+          {{ end }}
+          
+          {{ if .Params.teamLiamByline1 }}
+          <div class="short-text-content">
+            <p class="lead text-center">
+              {{ .Params.teamLiamByline1 }}
+              {{ if .Params.teamLiamByline2 }}
+              <br>
+              {{ .Params.teamLiamByline2 }}
+              {{ end }}
+            </p>
+          </div>
+          {{ end }}
+          
+          {{ if .Params.teamLiamBlurb }}
+          <div class="rich-text-content" style="font-size: 17px">
+            {{ .Params.teamLiamBlurb | markdownify }}
+          </div>
+          {{ end }}
+          
+        </div>
+        
+        <div class="col-sm-6 col-lg-4" style="margin-top: 40px">
+            
+          {{ if .Params.teamJeremyImage }}
+          <div style="max-width: 240px; margin: auto">
+            <img class="img-responsive img-circle" src="{{ .Site.Params.mediaBaseURL }}{{ .Params.teamJeremyImage }}" alt="{{ .Site.Title }}">
+          </div>
+          {{ end }}
+          
+          {{ if .Params.teamJeremyTitle }}
+          <div class="short-text-content">
+            <h3 class="text-center">{{ .Params.teamJeremyTitle }}</h3>
+          </div>
+          {{ end }}
+          
+          {{ if .Params.teamJeremyByline1 }}
+          <div class="short-text-content">
+            <p class="lead text-center">
+              {{ .Params.teamJeremyByline1 }}
+              {{ if .Params.teamJeremyByline2 }}
+              <br>
+              {{ .Params.teamJeremyByline2 }}
+              {{ end }}
+            </p>
+          </div>
+          {{ end }}
+          
+          {{ if .Params.teamJeremyBlurb }}
+          <div class="rich-text-content" style="font-size: 17px">
+            {{ .Params.teamJeremyBlurb | markdownify }}
+          </div>
+          {{ end }}
+          
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+</div>
 {{ end }}
+
+{{- define "js" }}
+{{ if .Site.Params.facebookLikeButtonAppId }}
+  {{- partial "facebook_like_button_js.html" . -}}
+{{ end }}
+{{ end -}}
