@@ -1,0 +1,81 @@
+{{ define "main" }}
+<div class="body-content">
+  <div class="row">
+    <div class="col-sm-12">
+
+      <div class="row">
+        <div class="col-md-3">
+
+          <br>
+
+          {{ if .Params.image }}
+          <a href="#" class="thumbnail" title="{{ .Title }}" style="display: inline-block">
+            <img class="img-responsive" src="{{ .Site.Params.mediaBaseURL }}{{ .Params.image }}" alt="{{ .Title }}" style="max-width: 200px">
+          </a>
+          {{ end }}
+
+        </div>
+    
+        <div class="col-md-9">
+
+          <h1>{{ .Title }}</h1>
+
+          {{ if .Params.brandCode }}
+          <p><strong>Brand code:</strong> {{ .Params.brandCode }}</p>
+          {{ end }}
+
+          <div class="row">
+      
+            {{ if .Params.address }}
+            <div class="col-sm-6">
+        
+              <p><strong>Address</strong></p>
+
+              <address>{{ safeHTML (replace .Params.address "\n" "<br>") }}</address>
+        
+            </div>
+            {{ end }}
+
+            {{ if and .Params.phoneNational .Params.phoneInternational }}
+            <p class="phone-toggle-wrapper">
+              <strong>Phone:</strong>
+              <span class="phone-national phone-enabled">{{ .Params.phoneNational }}</span>
+              <span class="phone-international">{{ .Params.phoneInternational }}</span>
+
+              (
+              <a href="#" class="phone-toggle phone-toggle-national" title="Switch to national format">Nat</a>
+              <strong class="phone-toggled-national phone-enabled">Nat</strong>
+              /
+              <a href="#" class="phone-toggle phone-toggle-international phone-enabled" title="Switch to international format">Int</a>
+              <strong class="phone-toggled-international">Int</strong>
+              )
+            </p>
+            {{ end }}
+
+            {{ if .Params.email }}
+            <p><strong>Email:</strong> <a href="mailto:{{ .Params.email }}">{{ .Params.email }}</a></p>
+            {{ end }}
+
+            {{ if .Params.websiteUrl }}
+            <p><strong>Web site:</strong> <a href="{{ .Params.websiteUrl }}">{{ .Params.websiteUrl }}</a></p>
+            {{ end }}
+
+            {{ if and .Params.address .Site.Params.mapboxAccessToken }}
+            <div class="row">
+              <div class="col-sm-12">
+
+                <div id="map" class="address-streetmap" data-address-streetmap-mapbox-access-token="{{ .Site.Params.mapboxAccessToken }}" data-address-streetmap-address="{{ .Params.address }}"></div>
+
+              </div><!-- /.col-sm-12 -->
+            </div><!-- /.row -->
+            {{ end }}
+    
+          </div>
+
+        </div>
+      </div>
+          
+    </div>
+  </div>
+</div>
+{{ end }}
