@@ -1,0 +1,57 @@
+{{ define "main" }}
+<div class="body-content">
+  <div class="row">
+    <div class="col-sm-12">
+
+      <h1>{{ .Title }}</h1>
+
+      {{ $brands := where .Site.RegularPages "Type" "brand" }}
+
+      {{ if len $brands }}
+
+      <div class="results-tile-or-list results-list clearfix">
+
+        {{ range $brands }}
+
+        <div class="thumbnail block-when-list with-bottomright-curve">
+
+          <div class="caption block-when-list caption-when-list">
+
+            <div class="row">
+
+              <div class="col-sm-2">
+                {{ if .Params.image }}
+                <br>
+                <a href="{{ .RelPermalink }}" class="thumbnail" title="{{ .Title }}" style="display: inline-block">
+                <img class="img-responsive" src="{{ .Site.Params.mediaBaseURL }}{{ .Params.image }}" alt="{{ .Title }}" style="max-width: 100px">
+                </a>
+                {{ end }}
+              </div>
+
+              <div class="col-sm-10">
+                <br>
+                <h2>
+                  <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                </h2>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        {{ end }}
+
+      </div>
+
+      {{ else }}
+
+      <p>No brands found.</p>
+
+      {{ end }}
+
+    </div>
+  </div>
+</div>
+{{ end }}
