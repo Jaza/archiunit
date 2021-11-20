@@ -1,0 +1,68 @@
+{{ define "main" }}
+<div class="body-content">
+  <div class="row">
+    <div class="col-sm-12">
+
+      <div class="row">
+
+        <div class="col-md-3">
+          {{ with .Site.GetPage (printf "/brand/%s" .Params.brandSlug) }}
+          {{ if .Params.image }}
+          <br>
+          <a href="{{ .RelPermalink }}" class="thumbnail" title="{{ .Title }}" style="float: left; margin-right: 2em">
+            <img class="img-responsive" src="{{ .Site.Params.mediaBaseURL }}{{ .Params.image }}" alt="{{ .Title }}" style="max-width: 200px">
+          </a>
+          {{ end }}
+          {{ end }}
+          <div class="clearfix"></div>
+        </div>
+
+        <div class="col-md-7">
+
+          <h1>
+            <a href="{{ .RelPermalink }}" style="color: #333; text-decoration: none; cursor: default">
+              {{ .Params.cubeTitle }} &ndash; {{ .Title }}
+            </a>
+          </h1>
+
+          {{ if .Params.uCode }}
+          <p>
+            <strong>U code:</strong>
+            {{ .Params.uCode }}
+          </p>
+          {{ end }}
+
+        </div>
+
+        <div class="col-md-2">
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="col-md-3" style="margin-top: 20px">
+        </div>
+
+        <div class="col-md-9" style="padding-top: 20px">
+
+          <div class="reactions">
+            <a href="#" class="btn btn-default" title="Log in or register in order to like this product">
+              <span class="fa fa-thumbs-up"><span class="sr-only">Like</span></span>
+            </a>
+            <a href="#" class="btn btn-default" title="Log in or register in order to dislike this product">
+              <span class="fa fa-thumbs-down"><span class="sr-only">Dislike</span></span>
+            </a>
+            <a href="#" class="btn btn-default" title="Log in or register in order to love this product">
+              <span class="fa fa-heart"><span class="sr-only">Love</span></span>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+{{ end }}
