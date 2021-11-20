@@ -42,6 +42,41 @@
       <div class="row">
 
         <div class="col-md-3" style="margin-top: 20px">
+
+          <div style="position: relative">
+            {{ $imageOrSwatch := (index .Params "swatchImage" | default (index .Params "image")) }}
+
+            {{ if $imageOrSwatch }}
+              <a href="{{ .RelPermalink }}" title="{{ .Params.cubeTitle }}" class="thumbnail with-bottomright-curve" style="float: left; cursor: default">
+                <img class="img-responsive" src="{{ .Site.Params.mediaBaseURL }}{{ $imageOrSwatch }}" alt="{{ .Params.cubeTitle }}">
+
+                {{ if .Params.swatchOverlayImage }}
+                <img class="img-responsive" src="{{ .Site.Params.mediaBaseURL }}{{ .Params.swatchOverlayImage }}" alt="{{ .Params.cubeTitle }}" style="position: absolute; top: 0">
+                {{ end }}
+
+                <object class="bottomright-curve" data="/img/corner-curve.svg" type="image/svg+xml">
+                  <span>corner curve</span>
+                </object>
+              </a>
+
+              <div class="clearfix"></div>
+            {{ end }}
+          </div>
+
+          {{ if .Params.swatchImage }}
+          <a href=".RelPermalink" title="{{ .Params.cubeTitle }}" class="thumbnail with-bottomright-curve" style="float: left; cursor: default">
+
+            <img class="img-responsive" src="{{ .Site.Params.mediaBaseURL }}{{ .Params.swatchImage }}" alt="{{ .Params.cubeTitle }}">
+
+            <object class="bottomright-curve" data="/img/corner-curve.svg" type="image/svg+xml">
+              <span>corner curve</span>
+            </object>
+
+          </a>
+
+          <div class="clearfix"></div>
+          {{ end }}
+
         </div>
 
         <div class="col-md-9" style="padding-top: 20px">
