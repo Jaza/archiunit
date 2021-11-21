@@ -93,6 +93,42 @@
             </a>
           </div>
 
+          <div class="row">
+
+            <div class="col-md-2">
+              <h2 style="font-size: 18px; margin-top: 0">Info</h2>
+            </div>
+
+            <div class="col-md-10">
+
+              {{ if and .Params.colourRgb .Params.colourHex }}
+              <div class="thumbnail with-bottomright-curve" style="float: left; margin-right: 1em; width: 102px; height: 102px; position: relative; background-color: #{{ .Params.colourHex }}">
+                <div style="position: absolute; top: 20%; left: 10%; width: 80%; text-align: center; background-color: #fff">
+                  <strong>Colour (RGB)</strong>
+                  <br>
+                  {{ .Params.colourRgb }}
+                </div>
+
+                <object class="bottomright-curve" data="/img/corner-curve.svg" type="image/svg+xml"><span>corner curve</span></object>
+              </div>
+              {{ end }}
+
+              {{ if .Params.isDarkColour }}
+              <div class="thumbnail with-bottomright-curve" style="float: left; margin-right: 1em; width: 102px; height: 102px; position: relative">
+                <div style="position: absolute; top: 20%; left: 0; width: 100%; text-align: center">
+                  <strong>Dark Colour</strong>
+                  <br>
+                  <span class="glyphicon glyphicon-{{ if eq .Params.isDarkColour "true" }}ok{{ else }}remove{{ end }} text-{{ if eq .Params.isDarkColour "true" }}success{{ else }}danger{{ end }}"></span>
+                </div>
+
+                <object class="bottomright-curve" data="/img/corner-curve.svg" type="image/svg+xml"><span>corner curve</span></object>
+              </div>
+              {{ end }}
+
+            </div>
+
+          </div>
+
         </div>
 
       </div>
