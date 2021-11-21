@@ -129,6 +129,62 @@
 
           </div>
 
+          <div class="row">
+
+            <div class="col-md-2">
+              <h2 style="font-size: 18px; margin-top: 0">
+                CAD Files
+              </h2>
+            </div>
+
+            <div class="col-md-10">
+
+              {{ $cadLabels := slice "Revit" "AutoCAD" "ArchiCAD" "SketchUp" "3Ds Max" }}
+              {{ range $cadLabels }}
+              <div class="thumbnail with-bottomright-curve" style="float: left; margin-right: 1em; width: 102px; height: 102px; position: relative">
+
+                <div style="position: absolute; top: 5%; left: 0; width: 100%; text-align: center">
+
+                  <img class="img-responsive" src="{{ $.Site.Params.mediaBaseURL }}cad-logo/{{ (replace . " " "") | lower }}.png" style="height: 40px; padding-bottom: 5px; display: inline-block">
+
+                  <p class="small" style="margin-bottom: 5px">
+                    {{ . }} Specs
+                  </p>
+
+                  &nbsp;
+                  <span class="btn btn-danger specify-value-unknown" style="font-size: 10px; padding: 2px">
+                    unknown
+                  </span>
+
+                </div>
+
+                <object class="bottomright-curve" data="/img/corner-curve.svg" type="image/svg+xml">
+                  <span>corner curve</span>
+                </object>
+
+              </div>
+              {{ end }}
+
+            </div>
+
+          </div>
+
+          <div class="clearfix"></div>
+
+          <br>&nbsp;<br>
+
+          {{ if .Params.websiteUrl }}
+          <p>
+            <strong>More info:</strong>
+            <a href="{{ .Params.websiteUrl | safeHTML }}">{{ .Params.websiteUrl | safeHTML }}</a>
+          </p>
+          {{ end }}
+
+          <p>
+            <strong>Product information expires on:</strong>
+            Mon 31 Dec 2029
+          </p>
+
         </div>
 
       </div>
