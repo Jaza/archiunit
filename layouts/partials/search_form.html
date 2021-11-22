@@ -1,0 +1,198 @@
+<li>
+  <div class="input-group input-group-search-keywords">
+    <label for="keywords" class="sr-only">Keywords</label>
+    <input type="text" class="form-control form-control-search-keywords" id="keywords" name="keywords" value="" placeholder="Search">
+  </div>
+
+  <div class="input-group input-group-search-button">
+    <span class="input-group-btn">
+      <button class="btn btn-primary" type="submit">
+        <span class="archiunit-symbol archiunit-symbol-search"></span>
+        <span class="sr-only">Search</span>
+      </button>
+    </span>
+  </div>
+</li>
+
+<li role="presentation" class="dropdown">
+  <a href="#" title="Product code" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+    <span class="archiunit-symbol archiunit-symbol-square-peeling-bottomright"></span>
+    <span class="visible-xs-inline hidden-sm">&nbsp;&nbsp;&nbsp;Product code</span>
+  </a>
+
+  <ul class="dropdown-menu dropdown-menu-search-filters">
+    <li>
+      <div class="form-group form-group-search-filter">
+        <label for="brand-code">Product code</label>
+        <input type="text" class="form-control" id="brand-code" name="product_code" value="">
+      </div>
+    </li>
+  </ul>
+</li>
+
+<li role="presentation" class="dropdown">
+  <a href="#" title="Product type" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+    <span class="archiunit-symbol archiunit-symbol-tags"></span>
+    <span class="visible-xs-inline hidden-sm">&nbsp;&nbsp;&nbsp;Product type</span>
+  </a>
+
+  <ul class="dropdown-menu dropdown-menu-search-filters">
+    <li>
+      <div class="form-group form-group-search-filter">
+        <label for="product-type">Product type</label>
+        <select class="form-control select2-enable" id="product-type" name="product_type" multiple="multiple" data-tags="true" style="width: 268px">
+          <option value="surface-panel">
+            Surface panel
+          </option>
+
+          <option value="surface-palette">
+            Surface palette
+          </option>
+
+          <option value="surface">
+            Surface
+          </option>
+        </select>
+      </div>
+    </li>
+  </ul>
+</li>
+
+<li role="presentation" class="dropdown">
+  <a href="#" title="Brand" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+    <span class="archiunit-symbol archiunit-symbol-building"></span>
+    <span class="visible-xs-inline hidden-sm">&nbsp;&nbsp;&nbsp;Brand</span>
+  </a>
+
+  <ul class="dropdown-menu dropdown-menu-search-filters">
+    <li>
+      <div class="form-group form-group-search-filter">
+        <label for="brand-id">Brand</label>
+        <select class="form-control select2-enable" id="brand-id" name="brand_id" multiple="multiple" data-tags="true" style="width: 268px">
+        {{ range where .Site.RegularPages "Section" "brand" }}
+          <option value="{{ .Params.brandCode }}">
+            {{ .Title }}
+          </option>
+        {{ end }}
+        </select>
+
+        <br>&nbsp;<br>
+        <p><a href="/brands/">All brands</a></p>
+      </div>
+    </li>
+  </ul>
+</li>
+
+<li role="presentation" class="dropdown">
+  <a href="#" title="Dimensions" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+    <span class="archiunit-symbol archiunit-symbol-cube"></span>
+    <span class="visible-xs-inline hidden-sm">&nbsp;&nbsp;&nbsp;Dimensions</span>
+  </a>
+
+  <ul class="dropdown-menu dropdown-menu-search-filters">
+    <li>
+      <div class="form-group form-group-search-filter">
+        <label for="dim-mm-min">Min dimensions (mm)</label>
+        <input type="text" class="form-control" id="dim-mm-min" name="dim_mm_min" value="">
+      </div>
+
+      <div class="form-group form-group-search-filter">
+        <label for="dim-mm-max">Max dimensions (mm)</label>
+        <input type="text" class="form-control" id="dim-mm-max" name="dim_mm_max" value="">
+      </div>
+    </li>
+  </ul>
+</li>
+
+<li role="presentation" class="dropdown dropdown-colour">
+  <a href="#" title="Colour" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+    <span class="archiunit-symbol archiunit-symbol-eye-dropper"></span>
+    <span class="visible-xs-inline hidden-sm">&nbsp;&nbsp;&nbsp;Colour</span>
+  </a>
+
+  <ul class="dropdown-menu dropdown-menu-search-filters">
+    <li>
+      <div class="form-group form-group-search-filter">
+        <label for="colour-rgb">Colour</label>
+        <input type="text" class="form-control" id="colour-rgb" name="colour_rgb" value="">
+      </div>
+    </li>
+  </ul>
+</li>
+
+<li role="presentation" class="dropdown">
+  <a href="#" title="Price" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+    <span class="archiunit-symbol archiunit-symbol-dollar"></span>
+    <span class="visible-xs-inline hidden-sm">&nbsp;&nbsp;&nbsp;Price</span>
+  </a>
+
+  <ul class="dropdown-menu dropdown-menu-search-filters">
+    <li>
+      <div class="form-group form-group-search-filter">
+        <label for="price-min">Min price</label>
+        <input type="text" class="form-control" id="price-min" name="price_min" value="">
+      </div>
+
+      <div class="form-group form-group-search-filter">
+        <label for="price-max">Max price</label>
+        <input type="text" class="form-control" id="price-max" name="price_max" value="">
+      </div>
+    </li>
+  </ul>
+</li>
+
+<li role="presentation" class="dropdown">
+  <a href="#" title="More search options" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+    <span class="archiunit-symbol archiunit-symbol-cogs"></span>
+    <span class="visible-xs-inline hidden-sm">&nbsp;&nbsp;&nbsp;More search options</span>
+  </a>
+
+  <ul class="dropdown-menu dropdown-menu-search-filters">
+    <li>
+      <div class="form-group form-group-search-filter" style="position: relative; top: -2px">
+        <label for="phys-weight-gm-min">Min weight (gm)</label>
+        <input type="text" class="form-control" id="phys-weight-gm-min" name="phys_weight_gm_min" value="">
+      </div>
+
+      <div class="form-group form-group-search-filter">
+        <label for="phys-weight-gm-max">Max weight (gm)</label>
+        <input type="text" class="form-control" id="phys-weight-gm-max" name="phys_weight_gm_max" value="">
+      </div>
+
+      <div class="form-group form-group-search-filter">
+        <div class="radio bsswitch-enable">
+          <strong>Group by cube</strong>
+
+          <label>
+            <input type="radio" id="group_by_cube1" name="group_by_cube" value="1"> <span class="sr-only">On</span>
+          </label>
+
+          <label class="sr-only">
+            <input type="radio" id="group_by_cube0" name="group_by_cube" value="0"> Off
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group form-group-search-filter">
+        <label for="per-page">Results per page</label>
+        <select class="form-control" id="per-page" name="per_page">
+          <option value="10">
+            10
+          </option>
+
+          <option value="25">
+            25
+          </option>
+
+          <option value="50" selected>
+            50
+          </option>
+
+          <option value="100">
+            100
+          </option>
+        </select>
+      </div>
+    </li>
+  </ul>
+</li>
