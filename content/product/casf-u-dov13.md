@@ -9,4 +9,5 @@ colourRgb: 176, 172, 169
 colourHex: B0ACA9
 isDarkColour: "false"
 websiteUrl: http://casf.com.au/colours/
+weight: 30472
 ---
