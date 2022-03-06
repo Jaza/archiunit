@@ -10,6 +10,7 @@ aboutBelowVideo: |-
   In future, we will ask suppliers for a subscription fee to be on ArchiUnit. But for now, it's free.
 
   If you are a supplier, we'd love for you to be one of our awesome pioneering partners, so get in touch.
+teamTitle: The Team
 teamLiamImage: image-content-block/team-liam-image/liam-filson-blackandwhite-2017-08-18-20-46-00.jpg
 teamLiamTitle: Liam Filson
 teamLiamByline1: Co-Founder
@@ -22,6 +23,7 @@ teamJeremyByline1: Co-Founder
 teamJeremyByline2: Director of Software Development
 teamJeremyBlurb: |-
   Jeremy has worked as a web developer for over 10 years, at organisations including the UNSW Web Unit and IRESS, and also in his freelance business, GreenAsh. He holds a B. Info Tech (Hons) degree from UTS. He writes articles imbued with "poignant wit and hippie ramblings", that people occasionally read if they don't know better. He has travelled widely, and while journeying he happened to become fluent in Spanish.
+contactTitle: Contact
 ---
 ArchiUnit is a different take on a building product directory. Created by and for architects and drafters.
 

@@ -24,9 +24,9 @@
       </div>
 
     </div>
-    
+
     <img class="img-responsive" src="{{ .Site.Params.mediaBaseURL }}{{ .Params.heroImage }}" alt="{{ .Site.Title }}">
-    
+
   </div>
 </div>
 {{ end }}
@@ -38,9 +38,9 @@
       <div class="col-sm-12">
 
       <br>
-      
+
       <h1 class="sr-only">{{ .Title }}</h1>
-      
+
       {{ if .Content }}
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
@@ -52,7 +52,7 @@
         </div>
       </div>
       {{ end }}
-      
+
       {{ if .Site.Params.youtubePromoVideoId }}
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2" style="margin-top: 60px">
@@ -62,7 +62,7 @@
         </div>
       </div>
       {{ end }}
-      
+
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
           {{ if .Params.aboutBelowVideo }}
@@ -72,13 +72,13 @@
             </div>
           </div>
           {{ end }}
-          
+
           {{ if .Site.Params.facebookLikeButtonAppId }}
           <div class="text-center" style="margin-top: 60px; margin-bottom: 20px">
             {{- partial "facebook_like_button.html" . -}}
           </div>
           {{ end }}
-          
+
           {{ if .Site.Params.paypalDonateButtonId }}
           <div class="text-center" style="margin-top: 20px; margin-bottom: 20px">
             {{- partial "paypal_donate_button.html" . -}}
@@ -86,35 +86,35 @@
           {{ end }}
         </div>
       </div>
-      
+
       {{ if .Params.teamTitle }}
       <div class="row">
         <div class="col-sm-12" style="margin-top: 40px">
-          
+
           <div class="short-text-content">
             <h2 class="text-center">{{ .Params.teamTitle }}</h2>
           </div>
-          
+
         </div>
       </div>
       {{ end }}
-      
+
       <div class="row">
-          
+
         <div class="col-sm-6 col-lg-4 col-lg-offset-2" style="margin-top: 40px">
-            
+
           {{ if .Params.teamLiamImage }}
           <div style="max-width: 240px; margin: auto">
             <img class="img-responsive img-circle" src="{{ .Site.Params.mediaBaseURL }}{{ .Params.teamLiamImage }}" alt="{{ .Site.Title }}">
           </div>
           {{ end }}
-          
+
           {{ if .Params.teamLiamTitle }}
           <div class="short-text-content">
             <h3 class="text-center">{{ .Params.teamLiamTitle }}</h3>
           </div>
           {{ end }}
-          
+
           {{ if .Params.teamLiamByline1 }}
           <div class="short-text-content">
             <p class="lead text-center">
@@ -126,29 +126,29 @@
             </p>
           </div>
           {{ end }}
-          
+
           {{ if .Params.teamLiamBlurb }}
           <div class="rich-text-content" style="font-size: 17px">
             {{ .Params.teamLiamBlurb | markdownify }}
           </div>
           {{ end }}
-          
+
         </div>
-        
+
         <div class="col-sm-6 col-lg-4" style="margin-top: 40px">
-            
+
           {{ if .Params.teamJeremyImage }}
           <div style="max-width: 240px; margin: auto">
             <img class="img-responsive img-circle" src="{{ .Site.Params.mediaBaseURL }}{{ .Params.teamJeremyImage }}" alt="{{ .Site.Title }}">
           </div>
           {{ end }}
-          
+
           {{ if .Params.teamJeremyTitle }}
           <div class="short-text-content">
             <h3 class="text-center">{{ .Params.teamJeremyTitle }}</h3>
           </div>
           {{ end }}
-          
+
           {{ if .Params.teamJeremyByline1 }}
           <div class="short-text-content">
             <p class="lead text-center">
@@ -160,17 +160,69 @@
             </p>
           </div>
           {{ end }}
-          
+
           {{ if .Params.teamJeremyBlurb }}
           <div class="rich-text-content" style="font-size: 17px">
             {{ .Params.teamJeremyBlurb | markdownify }}
           </div>
           {{ end }}
-          
+
         </div>
-        
+
       </div>
-      
+
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3" style="margin-top: 60px">
+
+        {{ if .Params.contactTitle }}
+        <div class="short-text-content">
+          <h2 class="text-center">Contact</h2>
+        </div>
+        {{ end }}
+
+        <form name="contact" method="POST" action="/success/" id="contactForm" class="form" data-netlify netlify-honeypot="vermiciousknid" data-netlify-recaptcha>
+          <input type="hidden" name="form-name" value="contact">
+          <input type="hidden" name="subject" value="[ArchiUnit] New Message">
+          <div class="row control-group">
+            <div class="form-group col-xs-12 floating-label-form-group controls">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" placeholder="Name" id="name" name="name" required>
+            </div>
+          </div>
+          <div class="row control-group">
+            <div class="form-group col-xs-12 floating-label-form-group controls">
+              <label for="email">Email Address</label>
+              <input type="email" class="form-control" placeholder="Email Address" id="email" name="email" required>
+            </div>
+          </div>
+          <div style="display: none">
+            <input type="text" name="vermiciousknid">
+          </div>
+          <div class="row control-group">
+            <div class="form-group col-xs-12 floating-label-form-group controls">
+              <label for="phone">Phone Number</label>
+              <input type="tel" class="form-control" placeholder="Phone Number" id="phone" name="phone" required>
+            </div>
+          </div>
+          <div class="row control-group">
+            <div class="form-group col-xs-12 floating-label-form-group controls">
+              <label for="message">Message</label>
+              <textarea rows="5" class="form-control" placeholder="Message" id="message" name="message" required></textarea>
+            </div>
+          </div>
+          <div data-netlify-recaptcha></div>
+          <br>
+          <div class="row">
+            <div class="form-group col-xs-12">
+              <button type="submit" class="btn btn-success btn-lg" id="btnSubmit">Send</button>
+            </div>
+            <br>&nbsp;<br>
+          </div>
+        </form>
+
+      </div>
     </div>
   </div>
 </div>
