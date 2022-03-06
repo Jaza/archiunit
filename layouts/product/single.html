@@ -47,8 +47,8 @@
             {{ $imageOrSwatch := (index .Params "swatchImage" | default (index .Params "image")) }}
 
             {{ if $imageOrSwatch }}
-              <a href="{{ .RelPermalink }}" title="{{ .Params.cubeTitle }}" class="thumbnail with-bottomright-curve" style="float: left; cursor: default">
-                <img class="img-responsive" src="{{ .Site.Params.mediaBaseURL }}{{ $imageOrSwatch }}" alt="{{ .Params.cubeTitle }}">
+              <a href="{{ .RelPermalink }}" title="{{ .Params.cubeTitle }}" class="thumbnail with-bottomright-curve" style="float: left; cursor: default; width: 100%">
+                <img class="img-responsive" src="{{ .Site.Params.mediaBaseURL }}{{ $imageOrSwatch }}" alt="{{ .Params.cubeTitle }}" style="object-fit: cover; aspect-ratio: 1 / 1; width: 100%">
 
                 {{ if .Params.swatchOverlayImage }}
                 <img class="img-responsive" src="{{ .Site.Params.mediaBaseURL }}{{ .Params.swatchOverlayImage }}" alt="{{ .Params.cubeTitle }}" style="position: absolute; top: 0">
@@ -64,9 +64,9 @@
           </div>
 
           {{ if .Params.swatchImage }}
-          <a href=".RelPermalink" title="{{ .Params.cubeTitle }}" class="thumbnail with-bottomright-curve" style="float: left; cursor: default">
+          <a href=".RelPermalink" title="{{ .Params.cubeTitle }}" class="thumbnail with-bottomright-curve" style="float: left; cursor: default; width: 100%">
 
-            <img class="img-responsive" src="{{ .Site.Params.mediaBaseURL }}{{ .Params.swatchImage }}" alt="{{ .Params.cubeTitle }}">
+            <img class="img-responsive" src="{{ .Site.Params.mediaBaseURL }}{{ .Params.swatchImage }}" alt="{{ .Params.cubeTitle }}" style="object-fit: cover; aspect-ratio: 1 / 1; width: 100%">
 
             <object class="bottomright-curve" data="/img/corner-curve.svg" type="image/svg+xml">
               <span>corner curve</span>
