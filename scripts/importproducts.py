@@ -124,6 +124,10 @@ def get_product_file_content(product_data):
         content += 'isDarkColour: "{0}"\n'.format(
             "true" if product_data["is_dark_colour"] == "Y" else "false")
 
+    if product_data.get("is_gloss") is not None:
+        content += 'isGloss: "{0}"\n'.format(
+            "true" if product_data["is_gloss"] == "Y" else "false")
+
     content += "websiteUrl: {0}\n".format(product_data["website_url"])
     content += "weight: {0}\n".format(random.randint(10000, 99999))
 

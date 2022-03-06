@@ -125,6 +125,18 @@
               </div>
               {{ end }}
 
+              {{ if .Params.isGloss }}
+              <div class="thumbnail with-bottomright-curve" style="float: left; margin-right: 1em; width: 102px; height: 102px; position: relative">
+                <div style="position: absolute; top: 20%; left: 0; width: 100%; text-align: center">
+                  <strong>Gloss</strong>
+                  <br>
+                  <span class="glyphicon glyphicon-{{ if eq .Params.isGloss "true" }}ok{{ else }}remove{{ end }} text-{{ if eq .Params.isGloss "true" }}success{{ else }}danger{{ end }}"></span>
+                </div>
+
+                <object class="bottomright-curve" data="/img/corner-curve.svg" type="image/svg+xml"><span>corner curve</span></object>
+              </div>
+              {{ end }}
+
             </div>
 
           </div>
