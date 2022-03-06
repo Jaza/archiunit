@@ -1,6 +1,6 @@
   <meta charset="utf-8">
 
-  <title>{{ if eq .Title "404 Page not found" }}Page not found{{ else }}{{ if .Params.cubeTitle }}{{ .Params.cubeTitle }} - {{ end }}{{ .Title }}{{ end }}{{ if not (eq .Title .Site.Title) }} - {{ .Site.Title }}{{ end }}</title>
+  <title>{{ if eq .Title "404 Page not found" }}Page not found{{ else }}{{ if .Params.cubeTitle }}{{ .Params.cubeTitle }} - {{ end }}{{ .Title }}{{ end }}{{ if not (eq .Title .Site.Title) }}{{ if .Title }} - {{ end }}{{ .Site.Title }}{{ end }}</title>
 
   <!-- Mobile viewport optimized: h5bp.com/viewport -->
   <meta name="viewport" content="width=device-width">

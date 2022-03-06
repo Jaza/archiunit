@@ -1,0 +1,31 @@
+<div class="thumbnail block-when-list with-bottomright-curve">
+  <div class="caption block-when-list caption-when-list">
+    {{ if .Params.swatchImage }}
+    <p class="result-item-image">
+      <a href="{{ .RelPermalink }}" title="{{ .Title }}">
+        <img class="img-responsive" src="{{ .Site.Params.mediaBaseURL }}{{ .Params.swatchImage }}" alt="{{ .Title }}" style="object-fit: cover; aspect-ratio: 1 / 1">
+
+        {{ if .Params.swatchOverlayImage }}
+        <img class="img-responsive" src="{{ .Site.Params.mediaBaseURL }}{{ .Params.swatchOverlayImage }}" alt="{{ .Title }}" style="position: absolute; top: 0; object-fit: cover; aspect-ratio: 1 / 1">
+        {{ end }}
+
+        {{ with .Site.GetPage (printf "/brand/%s" .Params.brandSlug) }}
+        {{ if .Params.image }}
+        <a href="{{ .RelPermalink }}" class="thumbnail product-tile-brand" title="{{ .Title }}">
+          <img class="img-responsive" src="{{ .Site.Params.mediaBaseURL }}{{ .Params.image }}" alt="{{ .Title }}">
+        </a>
+        {{ end }}
+        {{ end }}
+
+        {{ if .Params.colourHex }}
+        <span class="product-tile-colour" style="background-color: {{ .Params.colourHex }}"></span>
+        {{ end }}
+
+        <object class="bottomright-curve" data="/img/corner-curve.svg" type="image/svg+xml">
+          <span>corner curve</span>
+        </object>
+      </a>
+    </p>
+    {{ end }}
+  </div>
+</div>

@@ -1,4 +1,46 @@
 {{- define "body_class" }}navbar-nobottommargin{{ end -}}
 
+{{- define "content_class" }}container container-xl{{ end -}}
+{{- define "nav_class" }}container container-xl{{ end -}}
+
 {{ define "main" }}
+<div class="results-tile-or-list results-tile" style="margin-top: 20px">
+{{ $products := where $.Site.Pages "Section" "product" }}
+{{ if $products }}
+  {{ range (.Paginate $products 50).Pages.ByWeight }}
+    {{- partial "product_teaser.html" . -}}
+  {{ end }}
+{{ else }}
+  <p>No products found.</p>
+{{ end }}
+</div>
+
+{{ if $products }}
+
+    </div><!-- /.col-sm-12 -->
+  </div><!-- /.row -->
+</div><!-- /.body-content -->
+</div><!-- /.container -->
+
+<div class="container container-xl">
+<div class="body-content">
+  <div class="row">
+    <div class="col-sm-12">
+
+<br>
+<div class="results-tile-or-list results-tile">
+
+  {{ $pag := $.Paginator }}
+  {{ $startingIndex := mul $pag.PageSize (sub $pag.PageNumber 1) }}
+  {{ $firstNum := add $startingIndex 1 }}
+  {{ $lastNum := add $startingIndex $pag.NumberOfElements }}
+  <p>Showing {{ if gt $pag.TotalPages 1 }}results {{ $firstNum }} to {{ $lastNum }} of {{ $pag.TotalNumberOfElements }} (page {{ $pag.PageNumber }} of {{ $pag.TotalPages }}){{ else }}all {{ $pag.TotalNumberOfElements }} results{{ end }}.</p>
+  <br>
+
+  {{ partial "pagination.html" . }}
+
+</div>
+
+{{ end }}
+
 {{ end }}

@@ -74,6 +74,16 @@ def get_product_file_path(slug, current_repo_path):
         current_repo_path, PRODUCTS_RELATIVE_PATH, "{0}.md".format(slug)))
 
 
+def clean_image_filename(image_filename):
+    return (
+        image_filename
+            .replace(PRODUCT_IMAGE_BASE_URL_TO_REMOVE, "")
+            .replace("/", "_")
+            .replace(" ", "_")
+            .replace("(", "")
+            .replace(")", ""))
+
+
 def get_product_file_content(product_data):
     content = FRONT_MATTER_DELIMITER_LINE
 
@@ -86,35 +96,27 @@ def get_product_file_content(product_data):
     if product_data.get("swatch_image_url"):
         content += "swatchImage: {0}{1}\n".format(
             PRODUCT_SWATCH_IMAGE_PREFIX,
-            product_data["swatch_image_url"]
-                .replace(PRODUCT_IMAGE_BASE_URL_TO_REMOVE, "")
-                .replace("/", "_"))
+            clean_image_filename(product_data["swatch_image_url"]))
 
     if product_data.get("swatch_overlay_image_url"):
         content += "swatchOverlayImage: {0}{1}\n".format(
             PRODUCT_SWATCH_OVERLAY_IMAGE_PREFIX,
-            product_data["swatch_overlay_image_url"]
-                .replace(PRODUCT_IMAGE_BASE_URL_TO_REMOVE, "")
-                .replace("/", "_"))
+            clean_image_filename(product_data["swatch_overlay_image_url"]))
 
     if (
-        product_data.get("colour_r")
-        and product_data.get("colour_g")
-        and product_data.get("colour_b")
+        product_data.get("colour_rgb_r")
+        and product_data.get("colour_rgb_g")
+        and product_data.get("colour_rgb_b")
     ):
         content += "colourRgb: {0}, {1}, {2}\n".format(
-            product_data["colour_r"],
-            product_data["colour_g"],
-            product_data["colour_b"])
-
-        colour_r = int(product_data["colour_r"])
-        colour_g = int(product_data["colour_g"])
-        colour_b = int(product_data["colour_b"])
+            product_data["colour_rgb_r"],
+            product_data["colour_rgb_g"],
+            product_data["colour_rgb_b"])
 
         colour_hex = "{0:02x}{1:02x}{2:02x}".format(
-            int(product_data["colour_r"]),
-            int(product_data["colour_g"]),
-            int(product_data["colour_b"]))
+            int(product_data["colour_rgb_r"]),
+            int(product_data["colour_rgb_g"]),
+            int(product_data["colour_rgb_b"]))
 
         content += "colourHex: {0}\n".format(colour_hex.upper())
 
@@ -140,6 +142,9 @@ def import_product(product_data, current_repo_path):
         return False
 
     content = get_product_file_content(product_data)
+
+    with open(product_file_path, "w") as f:
+        f.write(content)
 
     return True
 

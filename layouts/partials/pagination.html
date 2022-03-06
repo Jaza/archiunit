@@ -1,0 +1,47 @@
+{{ $pag := $.Paginator }}
+{{ if gt $pag.TotalPages 1 -}}
+<nav class="pagination-wrapper">
+  <ul class="pagination">
+    {{ if $pag.HasPrev -}}
+    <li>
+      <a href="{{ $pag.Prev.URL }}">&laquo;</a>
+    </li>
+    {{ else -}}
+    <li class="disabled"><a href="#">&laquo;</a></li>
+    {{ end -}}
+
+  {{- $ellipsed := false -}}
+  {{- $shouldEllipse := false -}}
+  {{- range $pag.Pagers -}}
+  {{- $right := sub .TotalPages .PageNumber -}}
+  {{- $showNumber := or (le .PageNumber 3) (eq $right 0) -}}
+  {{- $showNumber := or $showNumber (le .TotalPages 5) -}}{{/* Issue #7523 */}}
+  {{- $showNumber := or $showNumber (and (gt .PageNumber (sub $pag.PageNumber 2)) (lt .PageNumber (add $pag.PageNumber 2))) -}}
+  {{- if $showNumber -}}
+    {{- $ellipsed = false -}}
+    {{- $shouldEllipse = false -}}
+  {{- else -}}
+    {{- $shouldEllipse = not $ellipsed -}}
+    {{- $ellipsed = true -}}
+  {{- end -}}
+  {{- if $showNumber }}
+    {{ if eq . $pag -}}
+    <li class="active"><a href="#">{{ .PageNumber }} <span class="sr-only">(current)</span></a></li>
+    {{ else -}}
+    <li><a href="{{ .URL }}">{{ .PageNumber }}</a></li>
+    {{ end -}}
+  {{- else if $shouldEllipse }}
+    <li class="disabled"><a href="#">…</a></li>
+  {{- end -}}
+  {{- end }}
+
+  {{ if $pag.HasNext -}}
+    <li>
+      <a href="{{ $pag.Next.URL }}">&raquo;</a>
+    </li>
+    {{ else -}}
+    <li class="disabled"><a href="#">&raquo;</a></li>
+    {{ end -}}
+  </ul>
+</nav>
+{{ end }}
