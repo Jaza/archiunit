@@ -31,7 +31,7 @@
 <div class="results-tile-or-list results-tile">
 
   {{ $pag := $.Paginator }}
-  {{ $startingIndex := mul $pag.PageSize (sub $pag.PageNumber 1) }}
+  {{ $startingIndex := mul $pag.PagerSize (sub $pag.PageNumber 1) }}
   {{ $firstNum := add $startingIndex 1 }}
   {{ $lastNum := add $startingIndex $pag.NumberOfElements }}
   <p>Showing {{ if gt $pag.TotalPages 1 }}results {{ $firstNum }} to {{ $lastNum }} of {{ $pag.TotalNumberOfElements }} (page {{ $pag.PageNumber }} of {{ $pag.TotalPages }}){{ else }}all {{ $pag.TotalNumberOfElements }} results{{ end }}.</p>
