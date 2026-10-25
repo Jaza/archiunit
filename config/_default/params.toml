@@ -1,7 +1,7 @@
 badgeLabel = "beta"
 footerNotice = "© ArchiUnit. ABN: 44 791 776 896."
 contactEmail = "info@archiunit.com"
-mediaBaseURL = "//uploads.archiunit.com/"
+mediaBaseURL = "//d2ajl41oq36xhz.cloudfront.net/"
 youtubePromoVideoId = "lxvRRN7eDgc"
 facebookLikeButtonAppId = "1769835703334213"
 paypalDonateButtonId = "UBBXRTGUJ7KCW"
